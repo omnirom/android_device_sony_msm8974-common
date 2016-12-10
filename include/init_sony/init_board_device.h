@@ -20,45 +20,69 @@
 #include "init_board_common.h"
 #include "init_prototypes.h"
 
-// Constants: device LEDs
-#define LED_RED_PATH "/sys/class/leds/led:rgb_red/"
-#define LED_GREEN_PATH "/sys/class/leds/led:rgb_green/"
-#define LED_BLUE_PATH "/sys/class/leds/led:rgb_blue/"
-
-// Constants: devices controls
-#define DEV_BLOCK_FOTA_NUM 16
+#define LED_RED_PATH "/sys/class/leds/led:rgb_red/brightness"
+#define LED_GREEN_PATH "/sys/class/leds/led:rgb_green/brightness"
+#define LED_BLUE_PATH "/sys/class/leds/led:rgb_blue/brightness"
+#define VIBRATOR_PATH "/sys/class/timed_output/vibrator/enable"
 
 // Class: init_board_device
 class init_board_device : public init_board_common
 {
 public:
-    // Board: introduction for keycheck
+    // Board: Introduction for Keycheck
     virtual void introduce_keycheck()
     {
-        // LED boot selection colors
+        // Short vibration
+        vibrate(75);
+
+        // LED purple
         led_color(255, 0, 255);
     }
 
-    // Board: introduction for Android
+    // Board: finalization of keycheck
+    virtual void finish_keycheck(bool recoveryBoot)
+    {
+        // Short vibration
+        if (recoveryBoot)
+        {
+            vibrate(75);
+            msleep(75);
+        }
+    }
+
+    // Board: Introduction for Android
     virtual void introduce_android()
     {
-        // Power off LED
+        // LED off
         led_color(0, 0, 0);
     }
 
-    // Board: introduction for Recovery
+    // Board: Introduction for Recovery
     virtual void introduce_recovery()
     {
-        // LED Recovery colors
+        // LED orange
         led_color(255, 100, 0);
     }
 
-    // Board: set led colors
-    void led_color(uint8_t r, uint8_t g, uint8_t b)
+    // Board: Finish init execution
+    virtual void finish_init()
     {
-        write_int(LED_RED_PATH "brightness", r);
-        write_int(LED_GREEN_PATH "brightness", g);
-        write_int(LED_BLUE_PATH "brightness", b);
+        // Power off vibrator
+        vibrate(0);
+    }
+
+    // Board: Set LED colors
+    void led_color(uint8_t red, uint8_t green, uint8_t blue)
+    {
+        write_int(LED_RED_PATH, red);
+        write_int(LED_GREEN_PATH, green);
+        write_int(LED_BLUE_PATH, blue);
+    }
+
+    // Board: Set hardware vibrator
+    void vibrate(uint8_t strength)
+    {
+        write_int(VIBRATOR_PATH, strength);
     }
 };
 
