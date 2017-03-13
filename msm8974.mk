@@ -111,6 +111,11 @@ else
     DEVICE_PACKAGE_OVERLAYS += $(COMMON_PATH)/overlay-wifionly
 endif
 
+# Power
+PRODUCT_PACKAGES += \
+    power.msm8974 \
+    power.qcom
+
 # Recovery
 PRODUCT_PACKAGES += \
     keycheck
