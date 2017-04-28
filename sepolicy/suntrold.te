@@ -13,7 +13,7 @@ allow suntrold socket_device:dir write;
 #============= suntrold ==============
 allow suntrold ion_device:chr_file { ioctl open read };
 allow suntrold socket_device:dir add_name;
-allow suntrold socket_device:sock_file { create setattr };
+allow suntrold socket_device:sock_file { create setattr getattr };
 allow suntrold tad:unix_stream_socket connectto;
 allow suntrold tad_socket:sock_file write;
 allow suntrold tee_device:chr_file { ioctl open read write };
