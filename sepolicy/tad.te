@@ -17,9 +17,9 @@ type_transition tad socket_device:sock_file tad_socket "tad";
 allow tad tmpfs:file rw_file_perms;
 
 #tad iddd
-allow tad iddd:unix_dgram_socket sendto;
-allow tad iddd_file:sock_file write;
-allow tad iddd_file:dir search;
+#allow tad iddd:unix_dgram_socket sendto;
+#allow tad iddd_file:sock_file write;
+#allow tad iddd_file:dir search;
 
 #tad random audit2allow
 allow tad proc:file { open read };

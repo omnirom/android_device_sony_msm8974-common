@@ -1,0 +1,62 @@
+[
+  {
+    "remote":       "omnirom",
+    "repository":   "android_kernel_sony_msm8974",
+    "target_path":  "kenrel/sony/msm8974",
+    "revision":     "android-7.1"
+  },
+  {
+    "remote":       "omnirom",
+    "repository":   "android_device_sony_common",
+    "target_path":  "device/sony/common",
+    "revision":     "android-7.1"
+  },
+  {
+    "remote":       "omnirom",
+    "repository":   "android_hardware_qcom_audio-caf-msm8974",
+    "target_path":  "hardware/qcom/audio-caf-msm8974",
+    "revision":     "android-7.0"
+  },
+  {
+    "remote":       "omnirom",
+    "repository":   "android_hardware_qcom_display-caf-msm8974",
+    "target_path":  "hardware/qcom/display-caf-msm8974",
+    "revision":     "android-7.0"
+  },
+  {
+    "remote":       "omnirom",
+    "repository":   "android_hardware_qcom_media-caf-msm8974",
+    "target_path":  "hardware/qcom/media-caf-msm8974",
+    "revision":     "android-7.0"
+  },
+  {
+    "remote":       "omnirom",
+    "repository":   "android_device_qcom_caf-sepolicy",
+    "target_path":  "device/qcom/sepolicy",
+    "revision":     "android-7.1"
+  },
+  {
+    "remote":       "omnirom",
+    "repository":   "android_hardware_sony_camera",
+    "target_path":   "hardware/sony/camera"
+    "revision":     "android-7.1"
+  },
+  {
+    "remote":       "omnirom",
+    "repository":   "android_hardware_sony_thermanager",
+    "target_path":  "hardware/sony/thermanager"
+    "revision":     "android-7.1"
+  },
+  {
+    "remote":       "omnirom",
+    "repository":   "android_hardware_sony_macaddrsetup",
+    "target_path":  "hardware/sony/macaddrsetup"
+    "revision":     "android-7.1"
+  },
+  {
+    "remote":       "omnirom",
+    "repository":   "android_hardware_sony_timekeep",
+    "target_path":  "hardware/sony/timekeep"
+    "revision":     "android-7.1"
+}
+]
