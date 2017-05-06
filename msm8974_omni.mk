@@ -21,5 +21,8 @@ TARGET_QCOM_AUDIO_VARIANT := caf-msm8974
 # Use stock camera blobs
 USE_CAMERA_STUB := true
 
+# msm8974 needs a custom liblights implementation
+TARGET_PROVIDES_LIBLIGHTS := true
+
 # inherit from msm8974.mk
 include device/sony/msm8974-common/msm8974.mk
