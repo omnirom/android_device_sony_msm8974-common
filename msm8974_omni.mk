@@ -23,4 +23,3 @@ USE_CAMERA_STUB := true
 
 # inherit from msm8974.mk
 include device/sony/msm8974-common/msm8974.mk
-
