@@ -38,25 +38,31 @@
   {
     "remote":       "omnirom",
     "repository":   "android_hardware_sony_camera",
-    "target_path":   "hardware/sony/camera"
+    "target_path":   "hardware/sony/camera",
     "revision":     "android-7.1"
   },
   {
     "remote":       "omnirom",
     "repository":   "android_hardware_sony_thermanager",
-    "target_path":  "hardware/sony/thermanager"
+    "target_path":  "hardware/sony/thermanager",
     "revision":     "android-7.1"
   },
   {
     "remote":       "omnirom",
     "repository":   "android_hardware_sony_macaddrsetup",
-    "target_path":  "hardware/sony/macaddrsetup"
+    "target_path":  "hardware/sony/macaddrsetup",
     "revision":     "android-7.1"
   },
   {
     "remote":       "omnirom",
     "repository":   "android_hardware_sony_timekeep",
-    "target_path":  "hardware/sony/timekeep"
+    "target_path":  "hardware/sony/timekeep",
     "revision":     "android-7.1"
-}
+  },
+  {
+    "remote":       "omnirom",
+    "repository":   "android_external_stlport",
+    "target_path":  "external/stlport",
+    "revision":     "android-7.0"
+  }
 ]
