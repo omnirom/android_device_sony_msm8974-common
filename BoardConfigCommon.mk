@@ -12,11 +12,6 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-# Kernel properties (must be set before calling common config file)
-ifeq (,$(filter $(TARGET_KERNEL_SOURCE),))
-  TARGET_KERNEL_SOURCE := kernel/sony/msm8974
-endif
-
 # inherit from sony-common
 include device/sony/common/CommonConfigOmni.mk
 

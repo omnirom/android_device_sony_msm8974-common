@@ -14,3 +14,8 @@
 
 # inherit from BoardConfigCommon.mk
 include device/sony/msm8974-common/BoardConfigCommon.mk
+
+# For omni use stock based kernel
+TARGET_KERNEL_SOURCE := kernel/sony/msm8974
+# Prevent building the unified kernel
+BUILD_KERNEL := false
