@@ -1,14 +1,14 @@
 [
   {
-    "remote":       "choose",
-    "repository":   "android_kernel_sony_msm8974",
-    "target_path":  "kernel/sony/msm8974",
-    "revision":     "android-7.1"
-  },
-  {
     "remote":       "omnirom",
     "repository":   "android_device_sony_common",
     "target_path":  "device/sony/common",
+    "revision":     "android-7.1"
+  },
+  {
+    "remote":       "choose",
+    "repository":   "android_kernel_sony_msm8974",
+    "target_path":  "kernel/sony/msm8974",
     "revision":     "android-7.1"
   },
   {
