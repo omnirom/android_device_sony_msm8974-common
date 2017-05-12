@@ -23,6 +23,10 @@ TARGET_SPECIFIC_HEADER_PATH += device/sony/msm8974-common/include
 TARGET_NO_BOOTLOADER := true
 TARGET_NO_RADIOIMAGE := true
 
+# Platform
+TARGET_BOOTLOADER_BOARD_NAME := MSM8974
+TARGET_BOARD_PLATFORM := msm8974
+
 # Architecture
 TARGET_ARCH := arm
 TARGET_CPU_ABI := armeabi-v7a
