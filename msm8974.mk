@@ -44,10 +44,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     SnapdragonCamera
 
-# Compatibility with older blobs
-PRODUCT_PACKAGES += \
-    libstlport
-
 # Specific apps
 PRODUCT_PACKAGES += \
     Snap \
