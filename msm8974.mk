@@ -40,8 +40,9 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     libcutilz
 
-PRODUCT_PROPERTY_OVERRIDES += \
-    camera2.portability.force_api=1
+# Snapdragon Camera
+PRODUCT_PACKAGES += \
+    SnapdragonCamera
 
 # Compatibility with older blobs
 PRODUCT_PACKAGES += \
@@ -137,10 +138,12 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     thermanager
 
-# Camera config for HAL1 hacks		
+# Camera config for HAL1 hacks
+PRODUCT_PROPERTY_OVERRIDES += \
+    camera2.portability.force_api=1
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
-     media.stagefright.legacyencoder=true \
-     media.stagefright.less-secure=true
+    media.stagefright.legacyencoder=true \
+    media.stagefright.less-secure=true
 
 # USB OTG
 PRODUCT_PROPERTY_OVERRIDES += \
