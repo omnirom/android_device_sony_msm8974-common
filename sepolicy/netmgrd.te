@@ -1,0 +1,11 @@
+#Allow netmgrd operations
+allow netmgrd netmgrd:capability {
+    dac_override
+    net_raw
+    net_admin
+    sys_module
+    fsetid
+    setgid
+    setuid
+    setpcap
+};
