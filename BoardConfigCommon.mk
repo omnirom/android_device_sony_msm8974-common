@@ -34,6 +34,9 @@ TARGET_CPU_ABI2 := armeabi
 TARGET_ARCH_VARIANT := armv7-a-neon
 TARGET_CPU_VARIANT := krait
 
+# Required for the 3.4 CAF kernel
+BOARD_KERNEL_CMDLINE += androidboot.hardware=qcom
+
 # Audio
 BOARD_USES_ALSA_AUDIO := true
 AUDIO_FEATURE_DISABLED_USBAUDIO := true
