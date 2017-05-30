@@ -34,6 +34,10 @@
     <string name="key_iso">sony-iso</string>
     <string name="key_iso_values">sony-iso-values</string>
 
+    <!-- Set's manufacturer specific parameters on startup.
+         Example: lge-camera=1;cam-mode=0 -->
+    <string name="manufacturer_key_values">sony-ae-mode=auto;sony-is=on;sony-vs=on-steady-shot</string>
+
     <!-- ISO values use numbers.
          Example: 50 instead of ISO50 -->
     <bool name="iso_values_use_numbers">true</bool>
