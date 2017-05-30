@@ -67,6 +67,12 @@
   },
   {
     "remote":       "omnirom",
+    "repository":   "android_hardware_sony_timekeep",
+    "target_path":  "hardware/sony/timekeep",
+    "revision":     "android-8.0"
+  },
+  {
+    "remote":       "omnirom",
     "repository":   "android_packages_apps_SnapdragonCamera2",
     "target_path":  "packages/apps/SnapdragonCamera2",
     "revision":     "android-8.0"

@@ -138,6 +138,11 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     thermanager
 
+# TimeKeep for managing time offsets w.r.t. RTC
+PRODUCT_PACKAGES += \
+    timekeep \
+    TimeKeep
+
 # Wifi
 PRODUCT_PACKAGES += \
     libwpa_client \
