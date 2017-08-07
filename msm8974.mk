@@ -12,9 +12,6 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-# inherit from sony-common
-include device/sony/common/common_omni.mk
-
 COMMON_PATH := device/sony/msm8974-common
 
 # Include msm8974-common system properties
