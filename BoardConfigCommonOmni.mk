@@ -24,3 +24,6 @@ BUILD_KERNEL := false
 # Use libinit_msm to detect the device variant etc. (e.g., ro.product.device)
 TARGET_UNIFIED_DEVICE := true
 TARGET_INIT_VENDOR_LIB := libinit_msm
+
+# Common twrp properties
+include device/sony/msm8974-common/twrp.mk
