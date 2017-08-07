@@ -24,6 +24,11 @@ USE_CAMERA_STUB := true
 # msm8974 needs a custom liblights implementation
 TARGET_PROVIDES_LIBLIGHTS := true
 
+# cryptfs hw
+TARGET_CRYPTFS_HW_PATH := $(COMMON_PATH)/cryptfs_hw
+PRODUCT_PACKAGES += \
+    libcryptfs_hw
+
 # Variant linking script
 PRODUCT_COPY_FILES += \
     device/sony/msm8974-common/releasetools/updater.sh:utilities/updater.sh
