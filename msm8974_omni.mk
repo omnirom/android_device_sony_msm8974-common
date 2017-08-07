@@ -25,7 +25,8 @@ USE_CAMERA_STUB := true
 TARGET_PROVIDES_LIBLIGHTS := true
 
 # cryptfs hw
-TARGET_CRYPTFS_HW_PATH := $(COMMON_PATH)/cryptfs_hw
+# TODO: Readjust path after splitup of sony-common
+TARGET_CRYPTFS_HW_PATH := device/sony/common/cryptfs_hw
 PRODUCT_PACKAGES += \
     libcryptfs_hw
 
@@ -44,3 +45,6 @@ PRODUCT_SYSTEM_PROPERTY_BLACKLIST := \
 
 # inherit from msm8974.mk
 include device/sony/msm8974-common/msm8974.mk
+
+# Omni custom config
+$(call inherit-product, vendor/omni/config/common.mk)
