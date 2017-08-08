@@ -86,3 +86,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Misc
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.data.qmi.adb_logmask=0
+
+# Wi-Fi interface name
+PRODUCT_PROPERTY_OVERRIDES += \
+    wifi.interface=wlan0
