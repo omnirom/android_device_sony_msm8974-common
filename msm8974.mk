@@ -59,6 +59,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     libion
 
+# librqbalance
+PRODUCT_PACKAGES += \
+    librqbalance
+
 # Lights
 PRODUCT_PACKAGES += \
     lights.msm8974
@@ -105,10 +109,6 @@ ifneq ($(BOARD_HAVE_RADIO),false)
 else
     DEVICE_PACKAGE_OVERLAYS += $(COMMON_PATH)/overlay-wifionly
 endif
-
-# Power
-PRODUCT_PACKAGES += \
-    power.msm8974
 
 # Recovery
 PRODUCT_PACKAGES += \
