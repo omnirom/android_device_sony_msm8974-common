@@ -59,9 +59,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     libion
 
-# librqbalance
-PRODUCT_PACKAGES += \
-    librqbalance
+# QC Perf
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.qualcomm.perf.cores_online=2 \
+    ro.vendor.extension_library=libqti-perfd-client.so
 
 # Lights
 PRODUCT_PACKAGES += \

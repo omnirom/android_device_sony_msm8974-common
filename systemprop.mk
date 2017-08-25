@@ -86,3 +86,9 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Wi-Fi interface name
 PRODUCT_PROPERTY_OVERRIDES += \
     wifi.interface=wlan0
+
+# MPDecision
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.qualcomm.perf.cores_online=2 \
+    ro.vendor.extension_library=libqti-perfd-client.so
+
