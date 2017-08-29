@@ -1,11 +1,6 @@
-#Allow netmgrd operations
-allow netmgrd netmgrd:capability {
-    dac_override
-    net_raw
-    net_admin
-    sys_module
-    fsetid
-    setgid
-    setuid
-    setpcap
-};
+type netmgrd, domain;
+type netmgrd_exec, exec_type, file_type;
+
+init_daemon_domain(netmgrd)
+
+qmux_socket(netmgrd)
