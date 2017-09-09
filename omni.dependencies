@@ -9,31 +9,31 @@
     "remote":       "choose",
     "repository":   "android_kernel_sony_msm8974",
     "target_path":  "kernel/sony/msm8974",
-    "revision":     "android-7.1"
+    "revision":     "android-8.0"
   },
   {
     "remote":       "omnirom",
     "repository":   "android_hardware_qcom_audio-caf-msm8974",
     "target_path":  "hardware/qcom/audio-caf-msm8974",
-    "revision":     "android-7.0"
+    "revision":     "android-8.0"
   },
   {
     "remote":       "omnirom",
     "repository":   "android_hardware_qcom_display-caf-msm8974",
     "target_path":  "hardware/qcom/display-caf-msm8974",
-    "revision":     "android-7.0"
+    "revision":     "android-8.0"
   },
   {
     "remote":       "omnirom",
     "repository":   "android_hardware_qcom_media-caf-msm8974",
     "target_path":  "hardware/qcom/media-caf-msm8974",
-    "revision":     "android-7.0"
+    "revision":     "android-8.0"
   },
   {
     "remote":       "omnirom",
     "repository":   "android_device_qcom_caf-sepolicy",
     "target_path":  "device/qcom/sepolicy",
-    "revision":     "android-7.1"
+    "revision":     "android-8.0"
   },
   {
     "remote":       "omnirom",
