@@ -27,6 +27,9 @@ TARGET_QCOM_DISPLAY_VARIANT := caf-msm8974
 TARGET_QCOM_MEDIA_VARIANT := caf-msm8974
 TARGET_QCOM_AUDIO_VARIANT := caf-msm8974
 
+# Use stock camera blobs
+USE_CAMERA_STUB := true
+
 # Use libinit_msm to detect the device variant etc. (e.g., ro.product.device)
 TARGET_UNIFIED_DEVICE := true
 TARGET_INIT_VENDOR_LIB := libinit_msm
