@@ -21,6 +21,12 @@ TARGET_KERNEL_SOURCE := kernel/sony/msm8974
 # Prevent building the unified kernel
 BUILD_KERNEL := false
 
+# Use CAF HALs
+BOARD_USES_QCOM_HARDWARE := true
+TARGET_QCOM_DISPLAY_VARIANT := caf-msm8974
+TARGET_QCOM_MEDIA_VARIANT := caf-msm8974
+TARGET_QCOM_AUDIO_VARIANT := caf-msm8974
+
 # Use libinit_msm to detect the device variant etc. (e.g., ro.product.device)
 TARGET_UNIFIED_DEVICE := true
 TARGET_INIT_VENDOR_LIB := libinit_msm

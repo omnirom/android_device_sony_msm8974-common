@@ -21,9 +21,6 @@ TARGET_QCOM_AUDIO_VARIANT := caf-msm8974
 # Use stock camera blobs
 USE_CAMERA_STUB := true
 
-# msm8974 needs a custom liblights implementation
-TARGET_PROVIDES_LIBLIGHTS := true
-
 # cryptfs hw
 # TODO: Readjust path after splitup of sony-common
 TARGET_CRYPTFS_HW_PATH := device/sony/common/cryptfs_hw
