@@ -27,6 +27,10 @@ TARGET_CRYPTFS_HW_PATH := device/sony/common/cryptfs_hw
 PRODUCT_PACKAGES += \
     libcryptfs_hw
 
+# Target provides the powerHAL
+PRODUCT_PACKAGES += \
+    power.qcom
+
 # Variant linking script
 PRODUCT_COPY_FILES += \
     device/sony/msm8974-common/releasetools/updater.sh:utilities/updater.sh
