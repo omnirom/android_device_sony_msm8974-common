@@ -39,18 +39,18 @@
     "remote":       "omnirom",
     "repository":   "android_hardware_sony_thermanager",
     "target_path":  "hardware/sony/thermanager",
-    "revision":     "android-7.1"
+    "revision":     "android-8.0"
   },
   {
     "remote":       "omnirom",
     "repository":   "android_hardware_sony_macaddrsetup",
     "target_path":  "hardware/sony/macaddrsetup",
-    "revision":     "android-7.1"
+    "revision":     "android-8.0"
   },
   {
     "remote":       "omnirom",
-    "repository":   "android_packages_apps_SnapdragonCamera",
+    "repository":   "android_packages_apps_SnapdragonCamera2",
     "target_path":  "packages/apps/SnapdragonCamera",
-    "revision":     "android-7.1"
+    "revision":     "android-8.0"
   }
 ]
