@@ -22,6 +22,3 @@ TARGET_KERNEL_SOURCE := kernel/sony/msm8974
 BUILD_KERNEL := false
 
 TARGET_INIT_VENDOR_LIB := libinit_msm
-
-# Common twrp properties
-include device/sony/msm8974-common/twrp.mk
