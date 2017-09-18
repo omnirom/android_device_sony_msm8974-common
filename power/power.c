@@ -180,8 +180,8 @@ static void power_hint( __attribute__((unused)) struct power_module *module,
         case POWER_HINT_VSYNC:
              ALOGE("%s TODO: POWER_HINT_VSYNC", __func__);
             break;
-        case POWER_HINT_CPU_BOOST:
-             ALOGE("%s TODO: POWER_HINT_CPU_BOOST", __func__);
+        case POWER_HINT_DISABLE_TOUCH:
+             ALOGE("%s TODO: POWER_HINT_DISABLE_TOUCH", __func__);
              break;
         case POWER_HINT_LAUNCH:
              ALOGE("%s TODO: POWER_HINT_LAUNCH", __func__);
