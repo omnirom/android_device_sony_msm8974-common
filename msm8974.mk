@@ -121,9 +121,10 @@ endif
 
 # Camera (stock blobs)
 PRODUCT_PACKAGES += \
-	libshims_signal \
-	libshims_idd \
-    libsonycamera
+    libshims_signal \
+    libshims_idd \
+    libsonycamera \
+    libGraphicBuffer
 
 # Recovery
 PRODUCT_PACKAGES += \
