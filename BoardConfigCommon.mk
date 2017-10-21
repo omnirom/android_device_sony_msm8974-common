@@ -96,6 +96,7 @@ MAX_EGL_CACHE_SIZE := 2048*1024
 
 # Init configuration for init_sony
 include device/sony/msm8974-common/init/config.mk
+BOARD_USES_INIT_SONY := true
 
 # Lights HAL
 TARGET_PROVIDES_LIBLIGHT := true
