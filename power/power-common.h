@@ -40,3 +40,5 @@
 
 #define HINT_HANDLED (0)
 #define HINT_NONE (-1)
+
+#define ARRAY_SIZE(arr) (sizeof(arr) / sizeof(arr[0]))
