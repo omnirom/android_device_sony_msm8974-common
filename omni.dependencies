@@ -6,7 +6,7 @@
     "revision":     "android-8.0"
   },
   {
-    "remote":       "choose",
+    "remote":       "omnirom",
     "repository":   "android_kernel_sony_msm8974",
     "target_path":  "kernel/sony/msm8974",
     "revision":     "android-8.0"
