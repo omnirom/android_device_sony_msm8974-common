@@ -159,93 +159,42 @@ static void power_hint( __attribute__((unused)) struct power_module *module,
                       power_hint_t hint, __attribute__((unused)) void *data)
 {
     int cpu, ret;
+    int duration = 500, duration_hint = 0;
+    static struct timespec s_previous_boost_timespec;
+    struct timespec cur_boost_timespec;
+    long long elapsed_time;
 
     switch (hint) {
         case POWER_HINT_INTERACTION:
-#if (debug)
-                ALOG("POWER_HINT_INTERACTION");
-#endif
-			    int duration_hint = 0;
+            if (data) {
+                duration_hint = *((int *)data);
+            }
 
-			    // little core freq bump for 1.5s
-			    int resources[] = {0x20C};
-			    int duration = 1500;
-			    static int handle_little = 0;
+            duration = duration_hint > 0 ? duration_hint : 500;
 
-			    // big core freq bump for 500ms
-			    int resources_big[] = {0x2312, 0x1F08};
-			    int duration_big = 500;
-			    static int handle_big = 0;
+            clock_gettime(CLOCK_MONOTONIC, &cur_boost_timespec);
+            elapsed_time = calc_timespan_us(s_previous_boost_timespec, cur_boost_timespec);
+            if (elapsed_time > 750000) {
+                elapsed_time = 750000;
+            }
+            // don't hint if it's been less than 250ms since last boost
+            // also detect if we're doing anything resembling a fling
+            // support additional boosting in case of flings
+            else if (elapsed_time < 250000 && duration <= 750) {
+                break;
+            }
 
-			    // sched_downmigrate lowered to 10 for 1s at most
-			    // should be half of upmigrate
-			    int resources_downmigrate[] = {0x4F00};
-			    int duration_downmigrate = 1000;
-			    static int handle_downmigrate = 0;
+            s_previous_boost_timespec = cur_boost_timespec;
 
-			    // sched_upmigrate lowered to at most 20 for 500ms
-			    // set threshold based on elapsed time since last boost
-			    int resources_upmigrate[] = {0x4E00};
-			    int duration_upmigrate = 500;
-			    static int handle_upmigrate = 0;
+            int resources[] = { (duration >= 2000 ? CPUS_ONLINE_MIN_3 : CPUS_ONLINE_MIN_2),
+                    0x20F, 0x30F, 0x40F, 0x50F };
 
-			    // set duration hint
-			    if (data) {
-					duration_hint = *((int*)data);
-			    }
-
-			    struct timespec cur_boost_timespec;
-			    clock_gettime(CLOCK_MONOTONIC, &cur_boost_timespec);
-
-			    pthread_mutex_lock(&s_interaction_lock);
-			    long long elapsed_time = calc_timespan_us(s_previous_boost_timespec, cur_boost_timespec);
-
-			    if (elapsed_time > 750000)
-					elapsed_time = 750000;
-			    // don't hint if it's been less than 250ms since last boost
-			    // also detect if we're doing anything resembling a fling
-			    // support additional boosting in case of flings
-			    else if (elapsed_time < 250000 && duration_hint <= 750) {
-					pthread_mutex_unlock(&s_interaction_lock);
-					return;
-			    }
-
-			    s_previous_boost_timespec = cur_boost_timespec;
-			    pthread_mutex_unlock(&s_interaction_lock);
-
-			    // 95: default upmigrate for phone
-			    // 20: upmigrate for sporadic touch
-			    // 750ms: a completely arbitrary threshold for last touch
-			    int upmigrate_value = 95 - (int)(75. * ((elapsed_time*elapsed_time) / (750000.*750000.)));
-
-			    // keep sched_upmigrate high when flinging
-			    if (duration_hint >= 750)
-					upmigrate_value = 20;
-
-			    resources_upmigrate[0] = resources_upmigrate[0] | upmigrate_value;
-			    resources_downmigrate[0] = resources_downmigrate[0] | (upmigrate_value / 2);
-
-			    // modify downmigrate duration based on interaction data hint
-			    // 1000 <= duration_downmigrate <= 5000
-			    // extend little core freq bump past downmigrate to soften downmigrates
-			    if (duration_hint > 1000) {
-					if (duration_hint < 5000) {
-					    duration_downmigrate = duration_hint;
-					    duration = duration_hint + 750;
-					} else {
-					    duration_downmigrate = 5000;
-					    duration = 5750;
-					}
-			    }
-
-			    handle_little = interaction_with_handle(handle_little,duration, sizeof(resources)/sizeof(resources[0]), resources);
-			    handle_big = interaction_with_handle(handle_big, duration_big, sizeof(resources_big)/sizeof(resources_big[0]), resources_big);
-			    handle_downmigrate = interaction_with_handle(handle_downmigrate, duration_downmigrate, sizeof(resources_downmigrate)/sizeof(resources_downmigrate[0]), resources_downmigrate);
-				handle_upmigrate = interaction_with_handle(handle_upmigrate, duration_upmigrate, sizeof(resources_upmigrate)/sizeof(resources_upmigrate[0]), resources_upmigrate);
-
+            if (duration) {
+                interaction(duration, ARRAY_SIZE(resources), resources);
             }
 
             break;
+            
         case POWER_HINT_VIDEO_ENCODE:
             process_video_encode_hint(data);
             break;
@@ -276,25 +225,25 @@ static void power_hint( __attribute__((unused)) struct power_module *module,
              }
              pthread_mutex_unlock(&low_power_mode_lock);
              break;
+             
         case POWER_HINT_VSYNC:
-#if (debug)
-#endif
             break;
+            
         case POWER_HINT_DISABLE_TOUCH:
 #if (debug)
-             ALOGE("%s TODO: POWER_HINT_DISABLE_TOUCH", __func__);
+            ALOGE("%s TODO: POWER_HINT_DISABLE_TOUCH", __func__);
 #endif
-             break;
+            break;
         case POWER_HINT_LAUNCH:
 #if (debug)
-             ALOGE("%s TODO: POWER_HINT_LAUNCH", __func__);
+            ALOGE("%s TODO: POWER_HINT_LAUNCH", __func__);
 #endif
-             break;
+            break;
         default:
 #if (debug)
-			 ALOGE("%s TODO: hint id: %i", __func__, hint);
+            ALOGE("%s TODO: hint id: %i", __func__, hint);
 #endif
-             break;
+            break;
     }
 }
 
