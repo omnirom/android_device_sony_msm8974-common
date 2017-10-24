@@ -1,3 +1,6 @@
+# VM settings
+/proc/sys/vm/overcommit_memory         u:object_r:vmsettings:s0
+
 # Trim Area daemon
 /dev/socket/tad                        u:object_r:tad_socket:s0
 /dev/socket/credmgr                    u:object_r:credmgrd_socket:s0
