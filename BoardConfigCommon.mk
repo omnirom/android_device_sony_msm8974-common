@@ -110,3 +110,7 @@ TARGET_RIL_VARIANT := caf
 BOARD_SEPOLICY_DIRS += \
     device/sony/msm8974-common/sepolicy
 
+PRODUCT_PRECOMPILED_SEPOLICY := false
+
+PRODUCT_FULL_TREBLE := true
+
