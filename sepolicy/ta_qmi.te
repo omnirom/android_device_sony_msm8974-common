@@ -29,6 +29,8 @@ allow ta_qmi ta_prop:property_service set;
 allow ta_qmi ta_prop:file { getattr open read };
 allow ta_qmi ta_prop:property_service set;
 
+#============= allow tad static wait ==============
+allow qti_init_shell rootfs:file entrypoint;
 
 #============= ta_qmi ==============
 # TODO: wrong labeled dest!
