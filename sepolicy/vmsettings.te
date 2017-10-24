@@ -1,0 +1,3 @@
+type vmsettings, file_type;
+
+allow { domain } vmsettings:file { read open };
