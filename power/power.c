@@ -42,6 +42,8 @@
 
 #define MAX_LENGTH         50
 
+#define debug 0
+
 #define UEVENT_MSG_LEN 1024
 #define TOTAL_CPUS 4
 #define RETRY_TIME_CHANGING_FREQ 20
@@ -123,13 +125,17 @@ static void power_set_interactive(__attribute__((unused)) struct power_module *m
     }
 
     ALOGV("%s %s", __func__, (on ? "ON" : "OFF"));
+#if (debug)
 	ALOGE("%s TODO", __func__);
+#endif
 
 }
 
 static void process_video_encode_hint(void *metadata)
 {
+#if (debug)
 	ALOGE("%s TODO", __func__);
+#endif
 }
 
 static void power_hint( __attribute__((unused)) struct power_module *module,
@@ -139,14 +145,11 @@ static void power_hint( __attribute__((unused)) struct power_module *module,
 
     switch (hint) {
         case POWER_HINT_INTERACTION:
+#if (debug)
             ALOGV("POWER_HINT_INTERACTION");
 			ALOGE("%s TODO POWER_HINT_INTERACTION ", __func__);
-            break;
-#if 0
-        case POWER_HINT_VSYNC:
-            ALOGV("POWER_HINT_VSYNC %s", (data ? "ON" : "OFF"));
-            break;
 #endif
+            break;
         case POWER_HINT_VIDEO_ENCODE:
             process_video_encode_hint(data);
             break;
@@ -178,16 +181,24 @@ static void power_hint( __attribute__((unused)) struct power_module *module,
              pthread_mutex_unlock(&low_power_mode_lock);
              break;
         case POWER_HINT_VSYNC:
+#if (debug)
              ALOGE("%s TODO: POWER_HINT_VSYNC", __func__);
+#endif
             break;
         case POWER_HINT_DISABLE_TOUCH:
+#if (debug)
              ALOGE("%s TODO: POWER_HINT_DISABLE_TOUCH", __func__);
+#endif
              break;
         case POWER_HINT_LAUNCH:
+#if (debug)
              ALOGE("%s TODO: POWER_HINT_LAUNCH", __func__);
+#endif
              break;
         default:
+#if (debug)
 			 ALOGE("%s TODO: hint id: %i", __func__, hint);
+#endif
              break;
     }
 }
