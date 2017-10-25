@@ -21,4 +21,7 @@ TARGET_KERNEL_SOURCE := kernel/sony/msm8974
 # Prevent building the unified kernel
 BUILD_KERNEL := false
 
+# Camera hidl
+TARGET_USES_QCOM_BSP := true
+
 TARGET_INIT_VENDOR_LIB := libinit_msm
