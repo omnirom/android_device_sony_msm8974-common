@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "77ab2a42_738eb84d",
+        "filename": "BoardConfigCommon.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1001711
+      },
+      "writtenOn": "2017-10-30T20:49:52Z",
+      "side": 1,
+      "message": "Could it be better to name it for something like \u0027PLATFORM_PATH\u0027 or \u0027BOARD_PATH\u0027 ?",
+      "revId": "ca817e8971e2598bdcd1a6f94d8d8021cca51c5b",
+      "serverId": "56841c99-7c94-43d4-bf0b-cb4707e66d55",
+      "unresolved": false
+    }
+  ]
+}
