@@ -12,10 +12,12 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+MSM8974_DIR := device/sony/msm8974-common
+
 BOARD_VENDOR := sony
 
 # Include path
-TARGET_SPECIFIC_HEADER_PATH += device/sony/msm8974-common/include
+TARGET_SPECIFIC_HEADER_PATH += $(MSM8974_DIR)/include
 
 TARGET_NO_BOOTLOADER := true
 TARGET_NO_RADIOIMAGE := true
@@ -68,7 +70,7 @@ GREEN_LED_PATH := /sys/class/leds/led:rgb_green/brightness
 BLUE_LED_PATH := /sys/class/leds/led:rgb_blue/brightness
 
 # CM Hardware
-BOARD_HARDWARE_CLASS += device/sony/msm8974-common/cmhw
+BOARD_HARDWARE_CLASS += $(MSM8974_DIR)/cmhw
 
 # Font
 EXTENDED_FONT_FOOTPRINT := true
@@ -94,7 +96,7 @@ MAX_EGL_CACHE_KEY_SIZE := 12*1024
 MAX_EGL_CACHE_SIZE := 2048*1024
 
 # Init configuration for init_sony
-include device/sony/msm8974-common/init/config.mk
+include $(MSM8974_DIR)/init/config.mk
 BOARD_USES_INIT_SONY := true
 
 # Lights HAL
@@ -106,10 +108,10 @@ TARGET_POWERHAL_VARIANT := qcom
 # RIL
 TARGET_RIL_VARIANT := caf
 
-BOARD_SEPOLICY_DIRS += \
-    device/sony/msm8974-common/sepolicy
-
+# SELinux
+BOARD_SEPOLICY_DIRS += $(MSM8974_DIR)/sepolicy
 PRODUCT_PRECOMPILED_SEPOLICY := false
 
+# Treble
 PRODUCT_FULL_TREBLE := true
-
+DEVICE_MANIFEST_FILE := $(MSM8974_DIR)/treble-manifest.xml
