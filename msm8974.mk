@@ -38,7 +38,7 @@ PRODUCT_PACKAGES += \
 
 # Snapdragon Camera
 PRODUCT_PACKAGES += \
-    SnapdragonCamera
+    SnapdragonCamera2
 
 # Specific apps
 PRODUCT_PACKAGES += \
