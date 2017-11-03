@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "f0a195df_3acd9300",
+        "filename": "msm8974.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1001322
+      },
+      "writtenOn": "2017-11-03T09:58:01Z",
+      "side": 1,
+      "message": "Snap? And snapdragon2\nJelly?",
+      "revId": "36ee681a676b4b92a542354228564011ee8cd33e",
+      "serverId": "56841c99-7c94-43d4-bf0b-cb4707e66d55",
+      "unresolved": false
+    }
+  ]
+}
