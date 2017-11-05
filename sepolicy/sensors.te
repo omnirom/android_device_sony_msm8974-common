@@ -4,3 +4,4 @@ allow sensors ta_prop:file { getattr read open };
 
 allow sensors sensors_data_file:dir setattr;
 allow sensors sensors_data_file:file append;
+allow toolbox sensors_data_file:dir getattr;
