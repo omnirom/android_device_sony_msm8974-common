@@ -97,6 +97,9 @@
 /system/vendor/bin/macaddrsetup        u:object_r:addrsetup_exec:s0
 /system/vendor/bin/timekeep            u:object_r:timekeep_exec:s0
 
+# Firmware files
+/system/etc/firmware/tzsuntory.mdt     u:object_r:firmware_file:s0
+
 # /sbin
 /sbin/tad_static                       u:object_r:tad_exec:s0
 
