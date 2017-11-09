@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "ec3f78aa_6103e74c",
+        "filename": "sepolicy/file_contexts",
+        "patchSetId": 1
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1001711
+      },
+      "writtenOn": "2017-11-09T12:09:49Z",
+      "side": 1,
+      "message": "Shouln\u0027t we tag the whole folder instead?",
+      "revId": "f70caadc5a275dd2f9751536e6ad2e3bba6f73e2",
+      "serverId": "56841c99-7c94-43d4-bf0b-cb4707e66d55",
+      "unresolved": false
+    }
+  ]
+}
