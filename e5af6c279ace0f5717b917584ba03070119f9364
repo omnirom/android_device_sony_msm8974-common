@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0ce36581_71668ac5",
+        "filename": "sepolicy/file_contexts",
+        "patchSetId": 2
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1001711
+      },
+      "writtenOn": "2017-11-09T15:39:09Z",
+      "side": 1,
+      "message": "Same comment. Could the whole folder be labeled instead?",
+      "revId": "e5af6c279ace0f5717b917584ba03070119f9364",
+      "serverId": "56841c99-7c94-43d4-bf0b-cb4707e66d55",
+      "unresolved": false
+    }
+  ]
+}
