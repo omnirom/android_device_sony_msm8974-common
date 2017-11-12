@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fb0aeb08_af840c6e",
+        "filename": "sepolicy/file_contexts",
+        "patchSetId": 1
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1001711
+      },
+      "writtenOn": "2017-11-12T15:57:58Z",
+      "side": 0,
+      "message": "same comment as in the DC PR. \nAnyway labelling into ramdisk do not work.",
+      "revId": "446f2c85eb3ca36bae410d4b8d664f4d401509bf",
+      "serverId": "56841c99-7c94-43d4-bf0b-cb4707e66d55",
+      "unresolved": false
+    }
+  ]
+}
