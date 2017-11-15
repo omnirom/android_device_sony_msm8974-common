@@ -96,6 +96,9 @@
 /data/scd(/.*)                         u:object_r:scd_data:s0
 /system/bin/scdnotifier                u:object_r:scd_exec:s0
 
+# audiod
+/proc/asound/cards                     u:object_r:proc_audiod:s0
+
 #cam_socket
 /data/misc/camera(/.*)                 u:object_r:camera_data_file:s0
 
