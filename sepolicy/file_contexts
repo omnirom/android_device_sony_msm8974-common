@@ -63,9 +63,6 @@
 /data/misc/gsiff_ctrl_q                u:object_r:location_data_file:s0
 /data/misc/location/mq/location-mq-s   u:object_r:location_data_file:s0
 
-/data/time(/.*)?                       u:object_r:time_data_file:s0
-
-
 ###################################
 # System files
 #
