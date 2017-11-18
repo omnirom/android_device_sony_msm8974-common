@@ -64,6 +64,15 @@ PRODUCT_PACKAGES += \
     libtilerenderer \
     libI420colorconvert
 
+# GPS
+PRODUCT_PACKAGES += \
+    libloc_core \
+    libloc_eng \
+    libgps.utils \
+    gps.msm8974
+    #
+    #libloc_api_v02 \
+
 # Ion
 PRODUCT_PACKAGES += \
     libion
