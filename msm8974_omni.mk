@@ -28,6 +28,9 @@ TARGET_CRYPTFS_HW_PATH := device/sony/common/cryptfs_hw
 PRODUCT_PACKAGES += \
     libcryptfs_hw
 
+# GPS use built-in
+USE_DEVICE_SPECIFIC_GPS := true
+
 # Target provides the powerHAL
 PRODUCT_PACKAGES += \
     power.qcom
