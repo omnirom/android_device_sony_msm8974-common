@@ -12,6 +12,12 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+# Audio configuration for msm8974 sony boards. Must be defined before including
+# common, since PRODUCT_COPY_FILES entries cannot be overridden and the common
+# version would be used otherwise.
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/audio/audio_effects.conf:system/vendor/etc/audio_effects.conf
+
 COMMON_PATH := device/sony/msm8974-common
 
 # Include msm8974-common system properties
