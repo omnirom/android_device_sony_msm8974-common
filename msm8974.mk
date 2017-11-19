@@ -46,11 +46,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     SnapdragonCamera2
 
-# Specific apps
-PRODUCT_PACKAGES += \
-    Snap \
-    Jelly
-
 # Display
 PRODUCT_PACKAGES += \
     hwcomposer.msm8974 \
