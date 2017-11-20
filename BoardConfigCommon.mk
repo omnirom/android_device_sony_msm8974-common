@@ -77,6 +77,7 @@ BACKLIGHT_PATH :=/sys/class/leds/lcd-backlight/brightness
 RED_LED_PATH := /sys/class/leds/led:rgb_red/brightness
 GREEN_LED_PATH := /sys/class/leds/led:rgb_green/brightness
 BLUE_LED_PATH := /sys/class/leds/led:rgb_blue/brightness
+BOARD_HAL_STATIC_LIBRARIES += libhealthd.$(TARGET_DEVICE)
 
 # Font
 EXTENDED_FONT_FOOTPRINT := true
