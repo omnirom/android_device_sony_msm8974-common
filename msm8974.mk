@@ -114,6 +114,11 @@ else
     DEVICE_PACKAGE_OVERLAYS += $(COMMON_PATH)/overlay-wifionly
 endif
 
+# Allow custom build keys
+ifneq (${ROM_KEYS_PATH},)
+    PRODUCT_DEFAULT_DEV_CERTIFICATE := ${ROM_KEYS_PATH}/releasekey
+    PRODUCT_EXTRA_RECOVERY_KEYS := $(PRODUCT_DEFAULT_DEV_CERTIFICATE)
+endif
 
 # Camera (stock blobs)
 PRODUCT_PACKAGES += \
