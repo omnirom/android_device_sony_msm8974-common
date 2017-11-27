@@ -22,3 +22,6 @@ TARGET_KERNEL_SOURCE := kernel/sony/msm8974
 BUILD_KERNEL := false
 
 TARGET_INIT_VENDOR_LIB := libinit_msm
+
+# Build embeded GPS HAL
+USE_DEVICE_SPECIFIC_GPS := true
