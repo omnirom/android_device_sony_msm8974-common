@@ -1,3 +1,11 @@
+#GPS debug
+PRODUCT_PROPERTY_OVERRIDES += \
+log.tag.GnssLocationProvider=DEBUG \
+log.tag.GnssHAL_GnssInterface=DEBUG \
+log.tag.LocSvc_eng=DEBUG \
+log.tag.LocSvc_afw=DEBUG \
+
+
 # Data modules config
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.data.large_tcp_window_size=true

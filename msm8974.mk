@@ -72,7 +72,7 @@ PRODUCT_PACKAGES += \
     libloc_core \
     libloc_eng \
     libgps.utils \
-    gps.msm8974
+    gps.qcom
     #
     #libloc_api_v02 \
 
