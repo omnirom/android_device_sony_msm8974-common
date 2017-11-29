@@ -14,8 +14,8 @@ LOCAL_SHARED_LIBRARIES := \
 LOCAL_SRC_FILES += \
     loc_log.cpp \
     loc_cfg.cpp \
-    msg_q.c \
-    linked_list.c \
+    msg_q.cpp \
+    linked_list.cpp \
     loc_target.cpp \
     platform_lib_abstractions/elapsed_millis_since_boot.cpp \
     LocHeap.cpp \
@@ -26,7 +26,8 @@ LOCAL_SRC_FILES += \
 
 LOCAL_CFLAGS += \
      -fno-short-enums \
-     -D_ANDROID_
+     -D_ANDROID_ \
+     -std=c++11
 
 ifeq ($(TARGET_BUILD_VARIANT),user)
    LOCAL_CFLAGS += -DTARGET_BUILD_VARIANT_USER
