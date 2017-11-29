@@ -27,7 +27,7 @@
  *
  */
 
-#define LOG_NDDEBUG 0
+#define LOG_NDDEBUG 9
 
 #include <stdio.h>
 #include <stdlib.h>
