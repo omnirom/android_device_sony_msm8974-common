@@ -121,7 +121,7 @@ BOARD_SEPOLICY_DIRS += $(PLATFORM_PATH)/sepolicy
 PRODUCT_PRECOMPILED_SEPOLICY := false
 
 # Treble
-PRODUCT_FULL_TREBLE := true
+#PRODUCT_FULL_TREBLE := true
 DEVICE_MANIFEST_FILE := $(PLATFORM_PATH)/treble-manifest.xml
 
 # Enable dex-preoptimization to speed up first boot sequence
