@@ -20,3 +20,8 @@ TARGET_KERNEL_SOURCE := kernel/sony/msm8974
 
 # Prevent building the unified kernel
 BUILD_KERNEL := false
+
+# Use Sony dataservices
+USE_DEVICE_SPECIFIC_DATASERVICE := true
+
+TARGET_INIT_VENDOR_LIB := libinit_msm
