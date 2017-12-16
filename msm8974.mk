@@ -16,7 +16,7 @@
 # common, since PRODUCT_COPY_FILES entries cannot be overridden and the common
 # version would be used otherwise.
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/audio/audio_effects.conf:system/vendor/etc/audio_effects.conf
+    $(LOCAL_PATH)/audio/audio_effects.conf:system/vendor/etc/audio_effects.xml
 
 COMMON_PATH := device/sony/msm8974-common
 
