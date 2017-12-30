@@ -63,6 +63,10 @@ PRODUCT_PACKAGES += \
     libtilerenderer \
     libI420colorconvert
 
+# File systems
+PRODUCT_PACKAGES += \
+    mount.exfat
+
 # GPS
 PRODUCT_COPY_FILES += \
     $(COMMON_PATH)/gps/flp.conf:system/etc/flp.conf \
