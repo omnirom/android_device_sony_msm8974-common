@@ -28,7 +28,7 @@ $(call inherit-product, device/sony/msm8974-common/hidl.mk)
 
 # Permissions
 PRODUCT_COPY_FILES += \
-    $(COMMON_PATH)/rootdir/vendor/system/etc/permissions_sony.xml:vendor/system/etc/permissions_sony.xml
+    $(COMMON_PATH)/rootdir/system/vendor/etc/permissions/permissions_sony.xml:system/vendor/etc/permissions/permissions_sony.xml
 
 # Audio
 PRODUCT_PACKAGES += \
@@ -63,6 +63,10 @@ PRODUCT_PACKAGES += \
     libtilerenderer \
     libI420colorconvert
 
+# File systems
+PRODUCT_PACKAGES += \
+    mount.exfat
+
 # GPS
 PRODUCT_COPY_FILES += \
     $(COMMON_PATH)/gps/flp.conf:system/etc/flp.conf \
@@ -71,7 +75,11 @@ PRODUCT_COPY_FILES += \
     $(COMMON_PATH)/gps/sap.conf:system/etc/sap.conf \
     frameworks/native/data/etc/android.hardware.location.gps.xml:system/etc/permissions/android.hardware.location.gps.xml
 PRODUCT_PACKAGES += \
-    gps.msm8974
+    libloc_core \
+    libloc_eng \
+    libgps.utils \
+    gps.msm8974 \
+    libloc_api_v02
 
 # Ion
 PRODUCT_PACKAGES += \
@@ -141,6 +149,12 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     keycheck
 
+# Seccomp
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/seccomp/mediacodec.policy:system/vendor/etc/seccomp_policy/mediacodec.policy \
+    $(LOCAL_PATH)/seccomp/mediaextractor.policy:system/vendor/etc/seccomp_policy/mediaextractor.policy
+
+#  Mobile Data
 PRODUCT_PACKAGES += \
     librmnetctl \
     libxml2

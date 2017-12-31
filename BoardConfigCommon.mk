@@ -70,6 +70,7 @@ TARGET_USES_MEDIA_EXTENSIONS := true
 BOARD_USES_SNAPDRAGONCAMERA_VERSION := 2
 
 # Charger
+HEALTHD_ENABLE_TRICOLOR_LED := true
 BOARD_CHARGER_ENABLE_SUSPEND := true
 BOARD_CHARGER_SHOW_PERCENTAGE := true
 BOARD_CHARGER_DISABLE_INIT_BLANK := true
@@ -77,10 +78,16 @@ BACKLIGHT_PATH :=/sys/class/leds/lcd-backlight/brightness
 RED_LED_PATH := /sys/class/leds/led:rgb_red/brightness
 GREEN_LED_PATH := /sys/class/leds/led:rgb_green/brightness
 BLUE_LED_PATH := /sys/class/leds/led:rgb_blue/brightness
-BOARD_HAL_STATIC_LIBRARIES += libhealthd.$(TARGET_DEVICE)
 
 # Font
 EXTENDED_FONT_FOOTPRINT := true
+
+# GPS
+USE_DEVICE_SPECIFIC_GPS := true
+BOARD_VENDOR_QCOM_GPS_LOC_API_HARDWARE := msm8974
+BOARD_VENDOR_QCOM_LOC_PDK_FEATURE_SET := true
+BOARD_VENDOR_QCOM_GPS_LOC_API_AMSS_VERSION := 50001
+TARGET_NO_RPC := true
 
 # Graphics
 USE_OPENGL_RENDERER := true
