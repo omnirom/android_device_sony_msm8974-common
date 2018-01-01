@@ -44,3 +44,7 @@ allow mediaserver credmgrd_socket:sock_file rw_file_perms;
 allow mediaserver camera_prop:file { getattr open read };
 allow mediaserver proc:file { open read };
 
+# Binder policies
+allow mediaserver hal_camera_hwservice:hwservice_manager find;
+allow mediaserver hal_configstore_ISurfaceFlingerConfigs:hwservice_manager find;
+binder_call(mediaserver, hal_configstore_default);
