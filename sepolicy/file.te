@@ -12,3 +12,6 @@ type sysfs_touch, fs_type, sysfs_type;
 type sysfs_addrsetup, fs_type, sysfs_type;
 type sysfs_timekeep, fs_type, sysfs_type;
 allow sysfs_type sysfs:filesystem associate;
+
+# flash device
+type sysfs_flash, fs_type, sysfs_type;

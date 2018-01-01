@@ -15,3 +15,14 @@ allow cameraserver camera_prop:file r_file_perms;
 
 # connect to /data/misc/camera sockets
 allow cameraserver mm-qcamerad:unix_stream_socket connectto;
+
+# Allow connections to credmgrd
+allow cameraserver credmgrd:unix_stream_socket connectto;
+allow cameraserver credmgrd_socket:sock_file write;
+
+# Allow flash light control
+allow cameraserver sysfs_flash:file { read write open };
+allow cameraserver sysfs_flash:dir search;
+allow cameraserver sysfs_flash:lnk_file read;
+
+
