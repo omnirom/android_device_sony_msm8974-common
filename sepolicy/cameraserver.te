@@ -25,4 +25,3 @@ allow cameraserver sysfs_flash:file { read write open };
 allow cameraserver sysfs_flash:dir search;
 allow cameraserver sysfs_flash:lnk_file read;
 
-
