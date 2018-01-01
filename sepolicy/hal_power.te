@@ -1,0 +1,6 @@
+# Wakeup gestures: 
+allow hal_power_default sysfs:file { open write };
+
+# mpdecision
+allow hal_power_default mpdecision:unix_stream_socket connectto;
+allow hal_power_default system_data_file:sock_file write;
