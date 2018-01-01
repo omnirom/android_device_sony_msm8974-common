@@ -15,6 +15,7 @@ allow credmgrd credmgrd_data_file:dir { add_name open read remove_name write };
 allow credmgrd credmgrd_data_file:file { create getattr lock open read setattr unlink write };
 allow credmgrd self:socket create_socket_perms;
 allowxperm credmgrd self:socket ioctl msm_sock_ipc_ioctls;
+allowxperm credmgrd credmgrd_data_file:file ioctl msm_sock_ipc_ioctls;
 
 #credmgdr tad
 allow credmgrd tad:unix_stream_socket connectto;
