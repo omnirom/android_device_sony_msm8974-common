@@ -68,6 +68,7 @@
 ###################################
 # System files
 #
+/system/bin/mount.exfat                u:object_r:mount_exec:s0
 /system/bin/qseeproxydaemon            u:object_r:tee_exec:s0
 /system/vendor/bin/credmgrd            u:object_r:credmgrd_exec:s0
 /system/vendor/bin/credmgrfirstboot.sh u:object_r:credmgrd_exec:s0
