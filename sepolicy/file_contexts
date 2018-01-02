@@ -69,6 +69,7 @@
 # System files
 #
 /system/bin/credmgrfirstboot.sh        u:object_r:credmgrd_exec:s0
+/system/bin/mount.exfat                u:object_r:mount_exec:s0
 /system/bin/qseeproxydaemon            u:object_r:tee_exec:s0
 /system/vendor/bin/credmgrd            u:object_r:credmgrd_exec:s0
 /system/vendor/bin/iddd                u:object_r:iddd_exec:s0
