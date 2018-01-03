@@ -1,0 +1,2 @@
+allow vold iddd_file:file r_file_perms;
+allow vold iddd_file:dir ioctl;
