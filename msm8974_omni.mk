@@ -30,7 +30,7 @@ PRODUCT_PACKAGES += \
 
 # Target provides the powerHAL
 PRODUCT_PACKAGES += \
-    power.qcom
+    power.msm8974
 
 # Variant linking script
 PRODUCT_COPY_FILES += \
