@@ -29,8 +29,8 @@ PRODUCT_PACKAGES += \
     libcryptfs_hw
 
 # Target provides the powerHAL
-PRODUCT_PACKAGES += \
-    power.qcom
+#PRODUCT_PACKAGES += \
+#    power.qcom
 
 # Variant linking script
 PRODUCT_COPY_FILES += \
