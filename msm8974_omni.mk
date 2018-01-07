@@ -29,8 +29,7 @@ PRODUCT_PACKAGES += \
     libcryptfs_hw
 
 # Target provides the powerHAL
-PRODUCT_PACKAGES += \
-    power.msm8974
+# now qti binderised
 
 # Variant linking script
 PRODUCT_COPY_FILES += \
