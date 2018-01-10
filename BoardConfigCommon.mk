@@ -42,6 +42,7 @@ BOARD_KERNEL_CMDLINE += msm_rtb.filter=0x3F ehci-hcd.park=3
 BOARD_KERNEL_CMDLINE += dwc3.maximum_speed=high dwc3_msm.prop_chg_detect=Y
 BOARD_KERNEL_CMDLINE += coherent_pool=8M
 BOARD_KERNEL_CMDLINE += sched_enable_power_aware=1 user_debug=31
+BOARD_KERNEL_CMDLINE += androidboot.wificountrycode=00
 # Required for the 3.4 CAF kernel
 BOARD_KERNEL_CMDLINE += androidboot.hardware=qcom
 
