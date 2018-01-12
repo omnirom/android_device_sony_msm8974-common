@@ -26,3 +26,6 @@ USE_DEVICE_SPECIFIC_DATASERVICE := true
 
 # SELinux
 include vendor/omni/sepolicy/sepolicy.mk
+
+# Widevine DRM
+$(call inherit-product-if-exists, vendor/sony/widevine/widevine.mk)
