@@ -45,3 +45,6 @@ include device/sony/msm8974-common/msm8974.mk
 
 # Omni custom config
 $(call inherit-product, vendor/omni/config/common.mk)
+
+# Widevine DRM
+$(call inherit-product-if-exists, vendor/sony/widevine/widevine.mk)
