@@ -117,6 +117,9 @@
 /sys/devices/fc880000.qcom,mss/subsys1/name                                       u:object_r:sysfs_subsys:s0
 /sys/devices/fdce0000.qcom,venus/subsys2/name                                     u:object_r:sysfs_subsys:s0
 
+# KCAL
+/sys/devices/platform/kcal_ctrl.0/kcal(.*)                                        u:object_r:sysfs_kcal_file:s0
+
 # rmt_storage
 /sys/devices/fd80000.rmtfs_sharedmem/uio/uio0(/.*)?                               u:object_r:sysfs_uio_file:s0
 
