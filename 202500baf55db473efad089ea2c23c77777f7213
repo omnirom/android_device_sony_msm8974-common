@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "bd9c9e90_c498bd07",
+        "filename": "gps/Android.mk",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1001711
+      },
+      "writtenOn": "2018-01-15T19:24:39Z",
+      "side": 1,
+      "message": "Why not removing the whole line instead?",
+      "revId": "202500baf55db473efad089ea2c23c77777f7213",
+      "serverId": "56841c99-7c94-43d4-bf0b-cb4707e66d55",
+      "unresolved": false
+    }
+  ]
+}
