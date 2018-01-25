@@ -23,3 +23,6 @@ BUILD_KERNEL := false
 
 # Use Sony dataservices
 USE_DEVICE_SPECIFIC_DATASERVICE := true
+
+# SELinux
+include vendor/omni/sepolicy/sepolicy.mk
