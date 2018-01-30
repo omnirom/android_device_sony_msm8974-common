@@ -45,13 +45,6 @@ BOARD_KERNEL_CMDLINE += sched_enable_power_aware=1 user_debug=31
 # Required for the 3.4 CAF kernel
 BOARD_KERNEL_CMDLINE += androidboot.hardware=qcom
 
-
-# Audio
-BOARD_USES_ALSA_AUDIO := true
-AUDIO_FEATURE_DISABLED_USBAUDIO := true
-AUDIO_FEATURE_ENABLED_EXTN_POST_PROC := true
-AUDIO_FEATURE_ENABLED_MULTI_VOICE_SESSIONS := true
-
 # Binder API version
 TARGET_USES_64_BIT_BINDER := true
 
