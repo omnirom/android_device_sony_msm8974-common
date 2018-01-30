@@ -47,13 +47,6 @@ BOARD_KERNEL_CMDLINE += androidboot.hardware=qcom
 
 # Defines for HW subsystems
 -include $(PLATFORM_PATH)/hardware/*/BoardConfig.mk
-
-# Audio
-BOARD_USES_ALSA_AUDIO := true
-AUDIO_FEATURE_DISABLED_USBAUDIO := true
-AUDIO_FEATURE_ENABLED_EXTN_POST_PROC := true
-AUDIO_FEATURE_ENABLED_MULTI_VOICE_SESSIONS := true
-
 # Binder API version
 TARGET_USES_64_BIT_BINDER := true
 

@@ -1,0 +1,9 @@
+# Audio
+BOARD_USES_ALSA_AUDIO := true
+AUDIO_FEATURE_DISABLED_USBAUDIO := true
+AUDIO_FEATURE_ENABLED_EXTN_POST_PROC := true
+AUDIO_FEATURE_ENABLED_MULTI_VOICE_SESSIONS := true
+
+# Do not copy packages/apps/DSPManager/cyanogen-dsp/audio_policy.conf file
+TARGET_USE_DEVICE_AUDIO_EFFECTS_CONF := true
+

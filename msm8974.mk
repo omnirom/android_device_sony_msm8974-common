@@ -12,12 +12,6 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-# Audio configuration for msm8974 sony boards. Must be defined before including
-# common, since PRODUCT_COPY_FILES entries cannot be overridden and the common
-# version would be used otherwise.
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/rootdir/system/vendor/etc/audio_effects.xml:system/vendor/etc/audio_effects.xml
-
 COMMON_PATH := device/sony/msm8974-common
 
 # Include HW subsystem-specific makefiles
@@ -34,21 +28,6 @@ $(call inherit-product, device/sony/msm8974-common/hidl.mk)
 # Permissions
 PRODUCT_COPY_FILES += \
     $(COMMON_PATH)/rootdir/system/vendor/etc/permissions/permissions_sony.xml:system/vendor/etc/permissions/permissions_sony.xml
-
-# Audio
-PRODUCT_PACKAGES += \
-    audio.a2dp.default \
-    audio.primary.msm8974 \
-    audio.r_submix.default \
-    audio.usb.default \
-    audio_policy.msm8974
-
-PRODUCT_PACKAGES += \
-    libaudio-resampler \
-    libqcompostprocbundle \
-    libqcomvisualizer \
-    libqcomvoiceprocessing \
-    tinymix
 
 # Snapdragon Camera
 PRODUCT_PACKAGES += \
