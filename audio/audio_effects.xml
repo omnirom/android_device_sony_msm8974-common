@@ -69,4 +69,10 @@
             <apply effect="ns"/>
         </stream>
     </preprocess>
+    <preprocess>
+        <stream type="voice_recognition">
+            <!-- put a dummy effect here to ensure voice_recognision do not have NS or AEC applied -->
+            <apply effect="volume"/>
+        </stream>
+    </preprocess>
 </audio_effects_conf>
