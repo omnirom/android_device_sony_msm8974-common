@@ -34,11 +34,26 @@ PRODUCT_PACKAGES += \
     audio.usb.default \
     audio_policy.msm8974
 
-# SoundFX
+# Frameworks
 PRODUCT_PACKAGES += \
     libaudio-resampler \
+    tinymix \
+    libaudiopolicyengineconfigurable \
+    libaudiopolicyenginedefault
+
+# soundfx libs
+PRODUCT_PACKAGES += \
+    libaudiopreprocessing \
+    libbundlewrapper \
+    libcyanogen-dsp \
+    libdownmix \
+    libeffectproxy \
+    libldnhncr \
+    libmusicbundle \
     libqcompostprocbundle \
     libqcomvisualizer \
     libqcomvoiceprocessing \
-    tinymix
+    libreverb \
+    libreverbwrapper \
+    libvisualizer
 
