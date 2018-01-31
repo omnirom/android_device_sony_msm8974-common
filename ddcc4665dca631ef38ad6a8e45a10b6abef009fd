@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4f34e56c_b5c81ead",
+        "filename": "msm8974.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1001711
+      },
+      "writtenOn": "2018-01-31T02:50:55Z",
+      "side": 1,
+      "message": "Dont like this. Need to find a better way.",
+      "revId": "ddcc4665dca631ef38ad6a8e45a10b6abef009fd",
+      "serverId": "56841c99-7c94-43d4-bf0b-cb4707e66d55",
+      "unresolved": false
+    }
+  ]
+}
