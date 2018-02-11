@@ -169,4 +169,9 @@
         <item>A_GLONASS_POS_PROTOCOL_SELECT=2</item>
     </string-array>
 
+    <!-- Does the battery LED support multiple colors? Used to decide if the user can change the colors -->
+    <bool name="config_multiColorBatteryLed">true</bool>
+
+    <bool name="config_multiColorNotificationLed">true</bool>
+
 </resources>
