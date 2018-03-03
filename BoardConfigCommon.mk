@@ -45,6 +45,8 @@ BOARD_KERNEL_CMDLINE += sched_enable_power_aware=1 user_debug=31
 # Required for the 3.4 CAF kernel
 BOARD_KERNEL_CMDLINE += androidboot.hardware=qcom
 
+# Defines for HW subsystems
+-include $(PLATFORM_PATH)/hardware/*/BoardConfig.mk
 
 # Audio
 BOARD_USES_ALSA_AUDIO := true
