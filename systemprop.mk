@@ -84,4 +84,5 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.vendor.extension_library=libqti-perfd-client.so
 
 # Disable lockscreen discard
-ro.lockscreen.secdiscard=false
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.lockscreen.secdiscard=false
