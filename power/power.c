@@ -219,6 +219,15 @@ static void process_low_power_hint(void *data) {
     pthread_mutex_unlock(&low_power_mode_lock);
 }
 
+static void process_launch_hint() {
+    int duration = 2000;
+    int resources[] = { CPUS_ONLINE_MIN_3,
+        CPU0_MIN_FREQ_TURBO_MAX, CPU1_MIN_FREQ_TURBO_MAX,
+        CPU2_MIN_FREQ_TURBO_MAX, CPU3_MIN_FREQ_TURBO_MAX };
+
+    interaction(duration, ARRAY_SIZE(resources), resources);
+}
+
 static void power_hint(__attribute__((unused)) struct power_module *module,
                       power_hint_t hint, __attribute__((unused)) void *data)
 {
@@ -244,6 +253,7 @@ static void power_hint(__attribute__((unused)) struct power_module *module,
 #endif
             break;
         case POWER_HINT_LAUNCH:
+            process_launch_hint();
             break;
         default:
 #if (debug)
