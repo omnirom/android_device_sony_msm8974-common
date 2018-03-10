@@ -155,7 +155,7 @@ static void process_video_encode_hint(void *metadata)
 #endif
 }
 
-static void process_interaction_hint(void *data) {
+static int process_interaction_hint(int lock_handle, void *data) {
     int duration = 500, duration_hint = 0;
     static struct timespec s_previous_boost_timespec;
     struct timespec cur_boost_timespec;
@@ -176,7 +176,7 @@ static void process_interaction_hint(void *data) {
     // also detect if we're doing anything resembling a fling
     // support additional boosting in case of flings
     else if (elapsed_time < 250000 && duration <= 750) {
-        return;
+        return lock_handle;
     }
 
     s_previous_boost_timespec = cur_boost_timespec;
@@ -185,8 +185,11 @@ static void process_interaction_hint(void *data) {
             0x20F, 0x30F, 0x40F, 0x50F };
 
     if (duration) {
-        interaction(duration, ARRAY_SIZE(resources), resources);
+        lock_handle = interaction(lock_handle, duration, ARRAY_SIZE(resources),
+                                  resources);
     }
+
+    return lock_handle;
 }
 
 static void process_low_power_hint(void *data) {
@@ -219,21 +222,23 @@ static void process_low_power_hint(void *data) {
     pthread_mutex_unlock(&low_power_mode_lock);
 }
 
-static void process_launch_hint() {
+static int process_launch_hint(int lock_handle) {
     int duration = 2000;
     int resources[] = { CPUS_ONLINE_MIN_3,
         CPU0_MIN_FREQ_TURBO_MAX, CPU1_MIN_FREQ_TURBO_MAX,
         CPU2_MIN_FREQ_TURBO_MAX, CPU3_MIN_FREQ_TURBO_MAX };
 
-    interaction(duration, ARRAY_SIZE(resources), resources);
+    return interaction(lock_handle, duration, ARRAY_SIZE(resources), resources);
 }
 
 static void power_hint(__attribute__((unused)) struct power_module *module,
                       power_hint_t hint, __attribute__((unused)) void *data)
 {
+    static int lock_handle = 0;
+
     switch (hint) {
         case POWER_HINT_INTERACTION:
-            process_interaction_hint(data);
+            process_interaction_hint(lock_handle, data);
             break;
             
         case POWER_HINT_VIDEO_ENCODE:
@@ -253,7 +258,7 @@ static void power_hint(__attribute__((unused)) struct power_module *module,
 #endif
             break;
         case POWER_HINT_LAUNCH:
-            process_launch_hint();
+            process_launch_hint(lock_handle);
             break;
         default:
 #if (debug)
