@@ -50,7 +50,6 @@ static int saved_mpdecision_slack_min = -1;
 static int slack_node_rw_failed = 0;
 static int display_hint_sent;
 
-
 int set_interactive_off(char * governor, int saved_interactive_mode) {
 
         struct video_encode_metadata_t video_encode_metadata;

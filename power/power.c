@@ -155,44 +155,90 @@ static void process_video_encode_hint(void *metadata)
 #endif
 }
 
-static void power_hint( __attribute__((unused)) struct power_module *module,
-                      power_hint_t hint, __attribute__((unused)) void *data)
-{
-    int cpu, ret;
+static int process_interaction_hint(int lock_handle, void *data) {
     int duration = 500, duration_hint = 0;
     static struct timespec s_previous_boost_timespec;
     struct timespec cur_boost_timespec;
     long long elapsed_time;
 
+    if (data) {
+        duration_hint = *((int *)data);
+    }
+
+    duration = duration_hint > 0 ? duration_hint : 500;
+
+    clock_gettime(CLOCK_MONOTONIC, &cur_boost_timespec);
+    elapsed_time = calc_timespan_us(s_previous_boost_timespec, cur_boost_timespec);
+    if (elapsed_time > 750000) {
+        elapsed_time = 750000;
+    }
+    // don't hint if it's been less than 250ms since last boost
+    // also detect if we're doing anything resembling a fling
+    // support additional boosting in case of flings
+    else if (elapsed_time < 250000 && duration <= 750) {
+        return lock_handle;
+    }
+
+    s_previous_boost_timespec = cur_boost_timespec;
+
+    int resources[] = { (duration >= 2000 ? CPUS_ONLINE_MIN_3 : CPUS_ONLINE_MIN_2),
+            0x20F, 0x30F, 0x40F, 0x50F };
+
+    if (duration) {
+        lock_handle = interaction(lock_handle, duration, ARRAY_SIZE(resources),
+                                  resources);
+    }
+
+    return lock_handle;
+}
+
+static void process_low_power_hint(void *data) {
+    int cpu, ret;
+    bool low_power_mode;
+
+    pthread_mutex_lock(&low_power_mode_lock);
+    if (data) {
+        low_power_mode = true;
+        for (cpu = 0; cpu < TOTAL_CPUS; cpu++) {
+            sysfs_write(cpu_path_min[cpu], LOW_POWER_MIN_FREQ);
+            ret = sysfs_write(cpu_path_max[cpu], LOW_POWER_MAX_FREQ);
+            if (!ret) {
+                freq_set[cpu] = true;
+            }
+        }
+        // reduces the refresh rate
+        system("service call SurfaceFlinger 1016");
+    } else {
+        low_power_mode = false;
+        for (cpu = 0; cpu < TOTAL_CPUS; cpu++) {
+            ret = sysfs_write(cpu_path_max[cpu], NORMAL_MAX_FREQ);
+            if (!ret) {
+                freq_set[cpu] = false;
+            }
+        }
+        // restores the refresh rate
+        system("service call SurfaceFlinger 1017");
+    }
+    pthread_mutex_unlock(&low_power_mode_lock);
+}
+
+static int process_launch_hint(int lock_handle) {
+    int duration = 2000;
+    int resources[] = { CPUS_ONLINE_MIN_3,
+        CPU0_MIN_FREQ_TURBO_MAX, CPU1_MIN_FREQ_TURBO_MAX,
+        CPU2_MIN_FREQ_TURBO_MAX, CPU3_MIN_FREQ_TURBO_MAX };
+
+    return interaction(lock_handle, duration, ARRAY_SIZE(resources), resources);
+}
+
+static void power_hint(__attribute__((unused)) struct power_module *module,
+                      power_hint_t hint, __attribute__((unused)) void *data)
+{
+    static int lock_handle = 0;
+
     switch (hint) {
         case POWER_HINT_INTERACTION:
-            if (data) {
-                duration_hint = *((int *)data);
-            }
-
-            duration = duration_hint > 0 ? duration_hint : 500;
-
-            clock_gettime(CLOCK_MONOTONIC, &cur_boost_timespec);
-            elapsed_time = calc_timespan_us(s_previous_boost_timespec, cur_boost_timespec);
-            if (elapsed_time > 750000) {
-                elapsed_time = 750000;
-            }
-            // don't hint if it's been less than 250ms since last boost
-            // also detect if we're doing anything resembling a fling
-            // support additional boosting in case of flings
-            else if (elapsed_time < 250000 && duration <= 750) {
-                break;
-            }
-
-            s_previous_boost_timespec = cur_boost_timespec;
-
-            int resources[] = { (duration >= 2000 ? CPUS_ONLINE_MIN_3 : CPUS_ONLINE_MIN_2),
-                    0x20F, 0x30F, 0x40F, 0x50F };
-
-            if (duration) {
-                interaction(duration, ARRAY_SIZE(resources), resources);
-            }
-
+            process_interaction_hint(lock_handle, data);
             break;
             
         case POWER_HINT_VIDEO_ENCODE:
@@ -200,31 +246,8 @@ static void power_hint( __attribute__((unused)) struct power_module *module,
             break;
 
         case POWER_HINT_LOW_POWER:
-             pthread_mutex_lock(&low_power_mode_lock);
-             if (data) {
-                 low_power_mode = true;
-                 for (cpu = 0; cpu < TOTAL_CPUS; cpu++) {
-                     sysfs_write(cpu_path_min[cpu], LOW_POWER_MIN_FREQ);
-                     ret = sysfs_write(cpu_path_max[cpu], LOW_POWER_MAX_FREQ);
-                     if (!ret) {
-                         freq_set[cpu] = true;
-                     }
-                 }
-                 // reduces the refresh rate
-                 system("service call SurfaceFlinger 1016");
-             } else {
-                 low_power_mode = false;
-                 for (cpu = 0; cpu < TOTAL_CPUS; cpu++) {
-                     ret = sysfs_write(cpu_path_max[cpu], NORMAL_MAX_FREQ);
-                     if (!ret) {
-                         freq_set[cpu] = false;
-                     }
-                 }
-                 // restores the refresh rate
-                 system("service call SurfaceFlinger 1017");
-             }
-             pthread_mutex_unlock(&low_power_mode_lock);
-             break;
+            process_low_power_hint(data);
+            break;
              
         case POWER_HINT_VSYNC:
             break;
@@ -235,9 +258,7 @@ static void power_hint( __attribute__((unused)) struct power_module *module,
 #endif
             break;
         case POWER_HINT_LAUNCH:
-#if (debug)
-            ALOGE("%s TODO: POWER_HINT_LAUNCH", __func__);
-#endif
+            process_launch_hint(lock_handle);
             break;
         default:
 #if (debug)
@@ -271,9 +292,43 @@ static void power_init(__attribute__((unused)) struct power_module *module)
     }
 }
 
+static int power_open(const hw_module_t* module, const char* name,
+                    hw_device_t** device)
+{
+    ALOGD("%s: enter; name=%s", __FUNCTION__, name);
+    int retval = 0; /* 0 is ok; -1 is error */
+
+    if (strcmp(name, POWER_HARDWARE_MODULE_ID) == 0) {
+        power_module_t *dev = (power_module_t *)calloc(1,
+                sizeof(power_module_t));
+
+        if (dev) {
+            /* Common hw_device_t fields */
+            dev->common.tag = HARDWARE_DEVICE_TAG;
+            dev->common.module_api_version = POWER_MODULE_API_VERSION_0_3;
+            dev->common.hal_api_version = HARDWARE_HAL_API_VERSION;
+
+            dev->init = power_init;
+            dev->powerHint = power_hint;
+            dev->setInteractive = power_set_interactive;
+            dev->setFeature = set_feature;
+            dev->get_number_of_platform_modes = NULL;
+            dev->get_platform_low_power_stats = NULL;
+            dev->get_voter_list = NULL;
+
+            *device = (hw_device_t*)dev;
+        } else
+            retval = -ENOMEM;
+    } else {
+        retval = -EINVAL;
+    }
+
+    ALOGD("%s: exit %d", __FUNCTION__, retval);
+    return retval;
+}
 
 static struct hw_module_methods_t power_module_methods = {
-    .open = NULL,
+    .open = power_open,
 };
 
 struct power_module HAL_MODULE_INFO_SYM = {

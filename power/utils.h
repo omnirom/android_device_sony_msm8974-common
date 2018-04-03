@@ -41,5 +41,4 @@ void perform_hint_action(int hint_id, int resource_values[],
     int num_resources);
 void undo_hint_action(int hint_id);
 
-void interaction(int duration, int num_args, int opt_list[]);
-int interaction_with_handle(int lock_handle, int duration, int num_args, int opt_list[]);
+int interaction(int lock_handle, int duration, int num_args, int opt_list[]);
