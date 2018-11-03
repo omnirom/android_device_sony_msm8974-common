@@ -75,12 +75,6 @@ BLUE_LED_PATH := /sys/class/leds/led:rgb_blue/brightness
 # Font
 EXTENDED_FONT_FOOTPRINT := true
 
-# GPS
-USE_DEVICE_SPECIFIC_GPS := true
-BOARD_VENDOR_QCOM_GPS_LOC_API_HARDWARE := msm8974
-BOARD_VENDOR_QCOM_LOC_PDK_FEATURE_SET := true
-TARGET_NO_RPC := true
-
 # Graphics
 USE_OPENGL_RENDERER := true
 TARGET_USES_ION := true

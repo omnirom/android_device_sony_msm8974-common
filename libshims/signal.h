@@ -49,6 +49,8 @@
 #  include <linux/signal.h>
 #endif
 
+typedef sigset_t sigset64_t;
+
 #include <sys/ucontext.h>
 #define __BIONIC_HAVE_UCONTEXT_T
 
