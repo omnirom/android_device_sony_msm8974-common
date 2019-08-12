@@ -75,7 +75,7 @@ allow credmgrd system_data_file:dir { add_name create relabelfrom remove_name se
 allow toolbox credmgrd_prop:property_service set;
 allow toolbox sensors_prop:property_service set;
 allow credmgrd vendor_toolbox_exec:file { execute execute_no_trans getattr open read };
-allow credmgrd self:capability { chown dac_override fowner fsetid };
+allow credmgrd self:capability { chown fowner fsetid };
 allow credmgrd credmgrd_data_file:file ioctl;
 
 #TODO: wrong labeled on dest socket?

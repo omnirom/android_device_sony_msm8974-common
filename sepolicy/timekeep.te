@@ -8,8 +8,6 @@ allow timekeep self:capability {
     fowner
     fsetid
     sys_time
-    dac_override
-    dac_read_search
 };
 
 allow timekeep time_data_file:file { create_file_perms getattr };
