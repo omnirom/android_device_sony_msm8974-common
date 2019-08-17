@@ -25,21 +25,9 @@
   },
   {
     "remote":       "omnirom",
-    "repository":   "android_hardware_qcom_gps",
-    "target_path":  "hardware/qcom/gps",
-    "revision":     "android-9.0"
-  },
-  {
-    "remote":       "omnirom",
     "repository":   "android_hardware_qcom_media-caf-msm8974",
     "target_path":  "hardware/qcom/media-caf-msm8974",
     "revision":     "android-8.1"
-  },
-  {
-    "remote":       "omnirom",
-    "repository":   "android_vendor_qcom_opensource_interfaces",
-    "target_path":  "vendor/qcom/opensource/interfaces",
-    "revision":     "android-9.0"
   },
   {
     "remote":       "omnirom",
