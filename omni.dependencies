@@ -30,10 +30,10 @@
     "revision":     "android-9.0"
   },
   {
-    "remote":       "omnirom",
-    "repository":   "android_hardware_qcom_media-caf-msm8974",
+    "remote":       "github",
+    "repository":   "nailyk-fr/android_hardware_qcom_media-caf-msm8974",
     "target_path":  "hardware/qcom/media-caf-msm8974",
-    "revision":     "android-8.1"
+    "revision":     "android-9.0"
   },
   {
     "remote":       "omnirom",
